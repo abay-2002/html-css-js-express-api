@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffe Indonesia</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet">
+   
+    <!--Fether Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Navbar Start -->
+    <nav class="navbar">
+        <a href ="#" class="navbar-logo"> Indonesia<span> Coffe </span>.</a>
+
+        <div class="navbar-nav">
+         <a href="#home">Home</a>
+         <a href="#about">About us</a>
+         <a href="#product">Product</a>
+         <a href="#contact">Contact</a>
+        </div>
+
+        <div class="navbar-extra">
+         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        </div>
+    </nav>
+    <!-- Navbar end -->
+
+    <!--Hero section start-->
+    <section class="hero" id="home">
+        <main class="content">
+            <h1> Indonesian <span>Coffe</span> variant</h1>
+            <p>Coffee, the beloved beverage that fuels mornings and gatherings, owes much of its allure to the art of roasting.</p>
+            <a href="#" class="cta">Buy Now</a>
+        </main>
+    </section>
+    <!--Hero section end-->
+
+    <!-- About section start-->
+    <section id="about" class="about">
+        <h2><span>About</span> us</h2>
+
+        <div class="row">
+            <div class="about-img">
+               <img src="img/tentang-kami.jpg" alt="About us">
+            </div>
+            <div class="content">
+                <h3>Quality coffee beans</h3>
+                <p>Export-quality espresso begins with selecting beans that can withstand the intense extraction process</p>
+                <p>Typically, espresso blends combine different coffee varietals to create a harmonious flavor profile. Roasters carefully balance beans from various regions and altitudes to achieve a blend that delivers balanced acidity, rich body, and a luscious crema – the hallmark of a great espresso shot.</p>
+            </div>
+        </div>
+    </section>
+    <!-- About section end-->
+
+    <!-- Menu sectiom start-->
+    <section id="product" class="product">
+        <h2><span>My</span>Product</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, accusantium consequatur saepe quia nobis.</p>
+
+        <div class="row" id="product-container">
+            <!-- <div class="product-card">
+                <img src="img/products/4 robusta malang.jpg" alt="Aceh Gayo">
+                <h3 class="product-card-tittle">- Robusta Malang -</h3>
+                <p class="product-card-price">$12</p>
+            </div> -->
+        </div>
+    </section>
+    <!-- Menu sectiom end-->
+
+    <!-- contact section start-->
+    <section id="contact" class="contact">
+        <h2><span>My</span>contact</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, error.</p>
+        
+    <div class="row">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.1743210568447!2d106.80932899999999!3d-6.3714820000000065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69eeaf7ea212fb%3A0x73b8084e2918e299!2sJl.%20Tanah%20Baru%20No.82%2C%20RT.1%2FRW.7%2C%20Tanah%20Baru%2C%20Kecamatan%20Beji%2C%20Kota%20Depok%2C%20Jawa%20Barat%2016426!5e0!3m2!1sid!2sid!4v1702285727356!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+
+        <form action="">
+           <div class="input-group">
+            <i data-feather="user"></i>
+            <input type="text" placeholder="name">
+           </div>
+           <div class="input-group">
+            <i data-feather="mail"></i>
+            <input type="text" placeholder="email">
+           </div>
+           <div class="input-group">
+            <i data-feather="phone"></i>
+            <input type="text" placeholder="phone number">
+           </div>
+           <button type="submit" class="btn">send message</button>
+        </form>
+    </div>
+    </section>
+    <!-- contact section end-->
+
+    <!--Footer start-->
+    <footer>
+        <div class="socials">
+          <a href="#"><i data-feather="instagram"></i></a>  
+          <a href="#"><i data-feather="twitter"></i></a>  
+          <a href="#"><i data-feather="instagram"></i></a>  
+        </div>
+
+        <div class="links">
+            <a href="#home">Home</a>
+            <a href="#about">About us</a>
+            <a href="#product">Product</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="credit">
+            <p>Created by <a href="">Muhamad Hakim Ramadanih</a>. | &copy; 2023.</p>
+        </div>
+    </footer>
+    <!--Footer end-->
+
+    <!-- Feather Icons -->
+    <script>
+        feather.replace();
+    </script>
+    <!-- My Javascript -->
+    <script src="script.js"></script>
+    <script>
+        // == FETCH API ==
+        // Asynchoronous | Gak Sinkron jadi datanya harus ditungguin dulu.
+        fetch("http://localhost:5000/products")
+        .then(response => { // Nungguin Data dari Server
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        }) 
+        .then(data => { // Ngambil data dari server hasil nungguin
+            displayData(data);
+        })
+        .catch(error => { // Kalo Servernya error misalnya Servernya mati
+            console.error("There was a problem with the fetch operation:", error);
+        });
+
+        function displayData(datas) {
+            console.log(datas);
+            let datasContainer = document.getElementById("product-container");
+
+            datas.forEach(data => {
+                console.log(data);
+                // Create a new div element for the product card
+                let productCard = document.createElement("div");
+                productCard.className = "product-card";
+
+                // Create an img element
+                let imgElement = document.createElement("img");
+                imgElement.src = `img/products/${data.img}`;
+                imgElement.alt = data.name;
+
+                // Create an h3 element for the product name
+                let titleElement = document.createElement("h3");
+                titleElement.className = "product-card-title";
+                titleElement.textContent = `- ${data.name} -`;
+
+                // Create a p element for the product price
+                let priceElement = document.createElement("p");
+                priceElement.className = "product-card-price";
+                priceElement.textContent = `$${data.price}`;
+
+                // Append child elements to the product card
+                productCard.appendChild(imgElement);
+                productCard.appendChild(titleElement);
+                productCard.appendChild(priceElement);
+
+                datasContainer.appendChild(productCard);
+            });
+
+            // // Create HTML elements to display the data
+            // let titleElement = document.createElement("h2");
+            // titleElement.textContent = data.title;
+
+            // let bodyElement = document.createElement("p");
+            // bodyElement.textContent = data.body;
+
+            // // Append elements to the container
+            // dataContainer.appendChild(titleElement);
+            // dataContainer.appendChild(bodyElement);
+        }
+    </script>
+</body>
+</html>
